@@ -46,6 +46,12 @@ class TestCollatz (TestCase):
         self.assertEqual(input1, 1)
         self.assertEqual(input2, 999999)
 
+    def test_read_4(self):
+        string = "\n"
+        input1, input2 = collatz_read(string)
+        self.assertEqual(input1, 0)
+        self.assertEqual(input2, 0)
+
     # ----
     # eval
     # ----
@@ -178,7 +184,7 @@ class TestCollatz (TestCase):
                               "5646 5696 205\n12 26 24\n6072 6165 187\n")
 
     def test_solve_3(self):
-        read = StringIO("176 240\n459 519\n889 981\n642 668\n230 305")
+        read = StringIO("176 240\n459 519\n889 981\n642 668\n230 305\n\n")
         write = StringIO()
         collatz_solve(read, write)
         self.assertEqual(
